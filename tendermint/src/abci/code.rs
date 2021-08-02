@@ -1,6 +1,7 @@
 use serde::de::{Deserialize, Deserializer, Visitor};
 use serde::{Serialize, Serializer};
 use std::fmt;
+use std::num::NonZeroU32;
 
 /// ABCI application response codes.
 ///
@@ -15,7 +16,7 @@ pub enum Code {
     Ok,
 
     /// Error codes
-    Err(u32),
+    Err(NonZeroU32),
 }
 
 impl Default for Code {
@@ -46,9 +47,9 @@ impl Code {
 
 impl From<u32> for Code {
     fn from(value: u32) -> Code {
-        match value {
-            0 => Code::Ok,
-            err => Code::Err(err),
+        match NonZeroU32::new(value) {
+            Some(value) => Code::Err(value),
+            None => Code::Ok,
         }
     }
 }
@@ -57,7 +58,7 @@ impl From<Code> for u32 {
     fn from(code: Code) -> u32 {
         match code {
             Code::Ok => 0,
-            Code::Err(err) => err,
+            Code::Err(err) => err.get(),
         }
     }
 }
