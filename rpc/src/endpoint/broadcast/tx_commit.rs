@@ -3,12 +3,10 @@
 
 use serde::{Deserialize, Serialize};
 
-use tendermint::abci::responses::Codespace;
-use tendermint::abci::{Event, Gas, Info};
-use tendermint::{
-    abci::{transaction, Code, Data, Log, Transaction},
-    block,
+use crate::abci::{
+    responses::Codespace, transaction, Code, Data, Event, Gas, Info, Log, Transaction,
 };
+use tendermint::block;
 
 /// `/broadcast_tx_commit`: only returns error if `mempool.CheckTx()` errs or
 /// if we timeout waiting for tx to commit.

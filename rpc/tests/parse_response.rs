@@ -1,12 +1,11 @@
 //! Tendermint RPC endpoint testing.
 
 use std::{fs, path::PathBuf};
-use tendermint::abci::Code;
 
 use std::str::FromStr;
 use tendermint::vote;
 use tendermint_rpc::endpoint::consensus_state::RoundVote;
-use tendermint_rpc::{self as rpc, endpoint, Response};
+use tendermint_rpc::{self as rpc, abci::Code, endpoint, Response};
 
 const EXAMPLE_APP: &str = "GaiaApp";
 const EXAMPLE_CHAIN: &str = "cosmoshub-2";
