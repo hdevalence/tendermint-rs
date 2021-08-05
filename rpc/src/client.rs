@@ -12,14 +12,15 @@ pub use transport::http::{HttpClient, HttpClientUrl};
 #[cfg(feature = "websocket-client")]
 pub use transport::websocket::{WebSocketClient, WebSocketClientDriver, WebSocketClientUrl};
 
+use crate::abci::{self, Transaction};
 use crate::endpoint::validators::DEFAULT_VALIDATORS_PER_PAGE;
 use crate::endpoint::*;
 use crate::paging::Paging;
 use crate::query::Query;
 use crate::{Error, Order, SimpleRequest};
+
 use async_trait::async_trait;
 use std::time::Duration;
-use tendermint::abci::{self, Transaction};
 use tendermint::block::Height;
 use tendermint::evidence::Evidence;
 use tendermint::Genesis;
