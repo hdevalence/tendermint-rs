@@ -1,8 +1,8 @@
 //! `/tx` endpoint JSON-RPC wrapper
 
-use crate::Method;
+use crate::{abci, Method};
 use serde::{Deserialize, Serialize};
-use tendermint::{abci, block};
+use tendermint::block;
 use tendermint_proto::types::TxProof;
 
 /// Request for finding a transaction by its hash.
