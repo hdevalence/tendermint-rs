@@ -724,6 +724,7 @@ mod mbt {
     const TEST_DIR: &str = "./tests/support/model_based";
 
     #[test]
+    #[ignore]
     fn run_model_based_single_step_tests() {
         let mut tester = Tester::new("test_run", TEST_DIR);
         tester.add_test_with_env("static model-based single-step test", fuzz_single_step_test);
