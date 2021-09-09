@@ -1,8 +1,8 @@
 //! Tags
 
-use crate::error::Error;
 use serde::{Deserialize, Serialize};
 use std::{fmt, str::FromStr};
+use tendermint::error::Error;
 use tendermint_proto::serializers::bytes::base64string;
 
 /// Tags

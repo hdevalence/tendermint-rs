@@ -5,12 +5,12 @@
 //!
 //! <https://tendermint.com/docs/spec/abci/apps.html#gas>
 
-use crate::error::Error;
 use serde::{de::Error as _, Deserialize, Deserializer, Serialize, Serializer};
 use std::{
     fmt::{self, Display},
     str::FromStr,
 };
+use tendermint::error::Error;
 
 /// Gas: representation of transaction processing resource costs
 #[derive(Copy, Clone, Debug, Default, Eq, PartialEq, PartialOrd, Ord)]
