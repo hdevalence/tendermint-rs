@@ -89,7 +89,7 @@ impl From<Block> for RawBlock {
         use tendermint_proto::types::Data as RawData;
         RawBlock {
             header: Some(value.header.into()),
-            data: Some(RawData { txs: value.data}),
+            data: Some(RawData { txs: value.data }),
             evidence: Some(value.evidence.into()),
             last_commit: value.last_commit.map(Into::into),
         }

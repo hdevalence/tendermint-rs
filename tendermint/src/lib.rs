@@ -23,7 +23,6 @@ extern crate alloc;
 #[macro_use]
 pub mod error;
 
-pub mod abci;
 pub mod account;
 pub mod block;
 pub mod chain;
