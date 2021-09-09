@@ -1,6 +1,5 @@
 //! Transaction hashes
 
-use crate::error::Error;
 use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
 use std::{
     fmt::{self, Debug, Display},
@@ -8,6 +7,7 @@ use std::{
 };
 use subtle::{self, ConstantTimeEq};
 use subtle_encoding::hex;
+use tendermint::error::Error;
 
 /// Size of a transaction hash in bytes
 pub const LENGTH: usize = 32;

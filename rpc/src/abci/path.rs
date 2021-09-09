@@ -1,11 +1,11 @@
 //! Paths to ABCI data
 
-use crate::error::Error;
 use serde::{Deserialize, Serialize};
 use std::{
     fmt::{self, Display},
     str::FromStr,
 };
+use tendermint::error::Error;
 
 /// Path to ABCI data
 #[derive(Clone, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]

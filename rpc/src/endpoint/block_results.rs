@@ -2,7 +2,8 @@
 
 use serde::{Deserialize, Serialize};
 
-use tendermint::{abci, block, consensus, validator};
+use crate::abci;
+use tendermint::{block, consensus, validator};
 
 /// Get ABCI results at a given height.
 #[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
