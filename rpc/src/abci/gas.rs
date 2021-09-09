@@ -5,7 +5,7 @@
 //!
 //! <https://tendermint.com/docs/spec/abci/apps.html#gas>
 
-use crate::error::Error;
+use tendermint::error::Error;
 use crate::prelude::*;
 use core::{
     fmt::{self, Display},
