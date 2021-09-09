@@ -1,6 +1,6 @@
 //! Tags
 
-use crate::error::Error;
+use tendermint::error::Error;
 use crate::prelude::*;
 use core::{fmt, str::FromStr};
 use serde::{Deserialize, Serialize};

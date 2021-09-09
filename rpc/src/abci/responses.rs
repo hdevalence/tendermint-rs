@@ -2,7 +2,7 @@
 
 use super::{code::Code, data::Data, gas::Gas, info::Info, log::Log, tag::Tag};
 use crate::prelude::*;
-use crate::{consensus, serializers, validator};
+use tendermint::{consensus, serializers, validator};
 use core::fmt::{self, Display};
 use serde::{Deserialize, Deserializer, Serialize};
 
