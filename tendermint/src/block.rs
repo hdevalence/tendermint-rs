@@ -34,6 +34,7 @@ use tendermint_proto::Protobuf;
 // Default serialization - all fields serialize; used by /block endpoint
 #[derive(Deserialize, Serialize, Clone, Debug, PartialEq)]
 #[non_exhaustive]
+#[serde(try_from = "RawBlock", into = "RawBlock")]
 pub struct Block {
     /// Block header
     pub header: Header,
@@ -45,7 +46,6 @@ pub struct Block {
     pub evidence: evidence::Data,
 
     /// Last commit
-    #[serde(with = "crate::serializers::optional")]
     pub last_commit: Option<Commit>,
 }
 
