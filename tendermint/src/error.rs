@@ -206,5 +206,21 @@ define_error! {
 
         TrustThresholdTooSmall
             |_| { "trust threshold too small (must be >= 1/3)" },
+
+        Other
+            { msg: &'static str }
+            | e | { format_args!("error: {}", e.msg) },
+    }
+}
+
+impl From<&'static str> for Error {
+    fn from(msg: &'static str) -> Error {
+        Error::other(msg)
+    }
+}
+
+impl From<std::convert::Infallible> for Error {
+    fn from(_never: std::convert::Infallible) -> Error {
+        unreachable!("Infallible can never be constructed")
     }
 }
