@@ -193,5 +193,22 @@ define_error! {
 
         TrustThresholdTooSmall
             |_| { "trust threshold too small (must be >= 1/3)" },
+
+        Other
+            { msg: String }
+            | e | { format_args!("error: {}", e.msg) },
+    }
+}
+
+impl From<&'static str> for Error {
+    fn from(msg: &'static str) -> Error {
+        use crate::alloc::string::ToString;
+        Error::other(msg.to_string())
+    }
+}
+
+impl From<core::convert::Infallible> for Error {
+    fn from(_never: core::convert::Infallible) -> Error {
+        unreachable!("Infallible can never be constructed")
     }
 }
