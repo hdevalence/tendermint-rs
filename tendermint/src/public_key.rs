@@ -643,6 +643,19 @@ mod tests {
             let msg = v[1];
             let sig = v[2];
 
+            dbg!(String::from_utf8(hex::encode(&public_key)).unwrap());
+            dbg!(String::from_utf8(hex::encode(&msg)).unwrap());
+            dbg!(String::from_utf8(hex::encode(&sig)).unwrap());
+
+            #[allow(unused_must_use)]
+            {
+                use ed25519_consensus as edc;
+                let sig = edc::Signature::try_from(sig).unwrap();
+                let result = edc::VerificationKey::try_from(public_key)
+                    .and_then(|vk| vk.verify(&sig, msg));
+                dbg!(result);
+            }
+
             let public_key = PublicKey::from_raw_ed25519(public_key).unwrap();
             match public_key {
                 PublicKey::Ed25519(_) => {}
