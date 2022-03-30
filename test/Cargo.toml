@@ -14,7 +14,7 @@ authors     = ["Alexander Simmerl <a.simmerl@gmail.com>"]
 test = true
 
 [dev-dependencies]
-ed25519-consensus = { version = "1.2", default-features = false }
+ed25519-consensus = { version = "2", default-features = false }
 flex-error = { version = "0.4.4", default-features = false }
 flume = { version = "0.10", default-features = false }
 rand_core = { version = "0.6", default-features = false, features = ["std"] }
