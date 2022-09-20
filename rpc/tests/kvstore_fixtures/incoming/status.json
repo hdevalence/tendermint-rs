@@ -1,10 +1,10 @@
 {
-  "id": "deefab4d-1175-4816-9544-af0d25727677",
+  "id": "84cd8df6-1ab8-4678-9294-7c7f63b60ad7",
   "jsonrpc": "2.0",
   "result": {
     "node_info": {
-      "channels": "40202122233038606100",
-      "id": "79fdd516b5477fd637b019cc6a129912a7f13bd6",
+      "channels": "402021222330386061626300",
+      "id": "25d4acdbecad89a4d50073cc5673965d98f5681d",
       "listen_addr": "tcp://0.0.0.0:26656",
       "moniker": "dockernode",
       "network": "dockerchain",
@@ -17,24 +17,34 @@
         "block": "11",
         "p2p": "8"
       },
-      "version": "v0.34.20"
+      "version": "0.35.0-unreleased"
     },
     "sync_info": {
+      "backfill_blocks_total": "0",
+      "backfilled_blocks": "0",
       "catching_up": false,
+      "chunk_process_avg_time": "0",
       "earliest_app_hash": "",
-      "earliest_block_hash": "F4FA302B25AF6113B997EB3870189A29177A593184F0AE0AC08DB4D1BE1BE568",
+      "earliest_block_hash": "05D500079FA8DFDCA556313E7A8E1FC4BDA2407D23A1A2ED40F1C06889A0BC43",
       "earliest_block_height": "1",
-      "earliest_block_time": "2022-07-21T22:06:01.373424724Z",
+      "earliest_block_time": "2021-11-25T17:04:33.387236819Z",
       "latest_app_hash": "0600000000000000",
-      "latest_block_hash": "A48DA0925AA7EDD5C1E07AE9D7CDC4A30F5541B2F555048B50EECB818164B297",
-      "latest_block_height": "47",
-      "latest_block_time": "2022-07-21T22:06:25.282998322Z"
+      "latest_block_hash": "96685C09D7C09916D127A894A5F53652E18AF8F0E5B4112C69A39CC631179960",
+      "latest_block_height": "12",
+      "latest_block_time": "2021-11-25T17:04:39.209040526Z",
+      "max_peer_block_height": "0",
+      "remaining_time": "0",
+      "snapshot_chunks_count": "0",
+      "snapshot_chunks_total": "0",
+      "snapshot_height": "0",
+      "total_snapshots": "0",
+      "total_synced_time": "0"
     },
     "validator_info": {
-      "address": "CCD08E1A253A3A53929EA9FB71C3C9018E9D2678",
+      "address": "6B3F66DCF73507BCE7148D6580DAC27074108628",
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
-        "value": "BJh7fTq/5bLf0XXKGixr3icDBQtkvaJRnkfsJgVLsnI="
+        "value": "fbRNPLlIO+9TvAyBBwxAm2CKODIL8Oxaryw/DaHJGq4="
       },
       "voting_power": "10"
     }

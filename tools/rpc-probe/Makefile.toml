@@ -10,7 +10,7 @@ dependencies = [ "docker-up", "wait", "run", "docker-down" ]
 
 [tasks.run]
 command = "cargo"
-args = ["run", "kvstore"]
+args = ["run", "--", "--verbose"]
 
 [tasks.docker-down]
 dependencies = [ "docker-stop", "docker-rm" ]

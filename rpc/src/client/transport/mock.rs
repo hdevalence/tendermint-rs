@@ -247,7 +247,7 @@ mod test {
 
     async fn read_json_fixture(name: &str) -> String {
         fs::read_to_string(
-            PathBuf::from("./tests/kvstore_fixtures/incoming/").join(name.to_owned() + ".json"),
+            PathBuf::from("./tests/kvstore_fixtures").join(name.to_owned() + ".json"),
         )
         .await
         .unwrap()
@@ -259,8 +259,8 @@ mod test {
 
     #[tokio::test]
     async fn mock_client() {
-        let abci_info_fixture = read_json_fixture("abci_info").await;
-        let block_fixture = read_json_fixture("block_at_height_10").await;
+        let abci_info_fixture = read_json_fixture("incoming/abci_info").await;
+        let block_fixture = read_json_fixture("incoming/block_at_height_10").await;
         let matcher = MockRequestMethodMatcher::default()
             .map(Method::AbciInfo, Ok(abci_info_fixture))
             .map(Method::Block, Ok(block_fixture));
@@ -269,6 +269,7 @@ mod test {
 
         let abci_info = client.abci_info().await.unwrap();
         assert_eq!("{\"size\":0}".to_string(), abci_info.data);
+        assert_eq!(Height::from(6_u32), abci_info.last_block_height);
 
         let block = client.block(Height::from(10_u32)).await.unwrap().block;
         assert_eq!(Height::from(10_u32), block.header.height);
@@ -283,9 +284,9 @@ mod test {
         let (client, driver) = MockClient::new(MockRequestMethodMatcher::default());
         let driver_hdl = tokio::spawn(async move { driver.run().await });
 
-        let event1 = read_event("subscribe_newblock_0").await;
-        let event2 = read_event("subscribe_newblock_1").await;
-        let event3 = read_event("subscribe_newblock_2").await;
+        let event1 = read_event("incoming/subscribe_newblock_0").await;
+        let event2 = read_event("incoming/subscribe_newblock_1").await;
+        let event3 = read_event("incoming/subscribe_newblock_2").await;
         let events = vec![event1, event2, event3];
 
         let subs1 = client.subscribe(EventType::NewBlock.into()).await.unwrap();

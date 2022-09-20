@@ -25,13 +25,13 @@ pub enum Error {
     InvalidParamValue(String),
 
     #[error("I/O error: {0}")]
-    IoError(String),
+    Io(String),
 
     #[error("unexpected success response")]
-    UnexpectedSuccess,
+    UnexpectedSuccessResponse,
 
     #[error("unexpected error response: {0}")]
-    UnexpectedError(String),
+    UnexpectedErrorResponse(String),
 }
 
 impl From<async_tungstenite::tungstenite::Error> for Error {
@@ -69,6 +69,6 @@ impl From<tokio::task::JoinError> for Error {
 
 impl From<std::io::Error> for Error {
     fn from(e: std::io::Error) -> Self {
-        Self::IoError(e.to_string())
+        Self::Io(e.to_string())
     }
 }

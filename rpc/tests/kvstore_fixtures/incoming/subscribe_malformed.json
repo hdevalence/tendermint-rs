@@ -4,6 +4,6 @@
     "data": "failed to parse query: \nparse error near PegText (line 1 symbol 2 - line 1 symbol 11):\n\"malformed\"\n",
     "message": "Internal error"
   },
-  "id": "4059afce-0dc9-4f5c-94b5-092dce7778b2",
+  "id": "7ba4d785-72ab-41a3-8a1d-7bce9af86fce",
   "jsonrpc": "2.0"
 }
